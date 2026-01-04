@@ -11,6 +11,9 @@ const contentGrid = document.getElementById('contentGrid');
 const loadingOverlay = document.getElementById('loadingOverlay');
 const modalOverlay = document.getElementById('modalOverlay');
 const searchInput = document.getElementById('searchInput');
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.querySelector('.sidebar');
+const previewUnlockBtn = document.getElementById('previewUnlockBtn');
 
 let currentSection = 'home';
 let currentSubcategory = null;
@@ -39,6 +42,8 @@ function showApp(name) {
     displayName.textContent = name;
     initNavigation();
     initSearch();
+    initMobileMenu();
+    initPreviewBanner();
     loadHomeContent();
 }
 
@@ -67,6 +72,58 @@ function handleSectionChange(section) {
         showSubcategories(section);
         const firstSubcat = Object.keys(contentData[section])[0];
         loadCategoryContent(section, firstSubcat);
+    }
+    // Fechar menu mobile após seleção
+    if (window.innerWidth <= 768) {
+        closeMobileMenu();
+    }
+}
+
+// MOBILE MENU
+function initMobileMenu() {
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+
+        // Fechar menu ao clicar no overlay
+        const overlay = document.getElementById('sidebarOverlay');
+        if (overlay) {
+            overlay.addEventListener('click', closeMobileMenu);
+        }
+    }
+}
+
+function toggleMobileMenu() {
+    if (sidebar) {
+        sidebar.classList.toggle('mobile-open');
+        const overlay = document.getElementById('sidebarOverlay');
+        if (overlay) {
+            overlay.classList.toggle('active');
+        }
+        document.body.classList.toggle('menu-open');
+    }
+}
+
+function closeMobileMenu() {
+    if (sidebar) {
+        sidebar.classList.remove('mobile-open');
+        const overlay = document.getElementById('sidebarOverlay');
+        if (overlay) {
+            overlay.classList.remove('active');
+        }
+        document.body.classList.remove('menu-open');
+    }
+}
+
+// PREVIEW BANNER
+function initPreviewBanner() {
+    if (previewUnlockBtn) {
+        previewUnlockBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showBlockedModal();
+        });
     }
 }
 
@@ -98,40 +155,41 @@ function hideSubcategories() {
 function loadHomeContent() {
     contentGrid.innerHTML = '';
     const allContent = [];
-    // Unlocked for HOME preview as requested
-    Object.values(contentData.filmes).forEach(cat => cat.slice(0, 4).forEach(item => allContent.push({ ...item, type: 'movie', locked: false })));
-    Object.values(contentData.series).forEach(cat => cat.slice(0, 3).forEach(item => allContent.push({ ...item, type: 'series', locked: false })));
+    const seenIds = new Set();
+    
+    // Unlocked for HOME preview - pegar mais itens de cada categoria sem duplicações
+    Object.values(contentData.filmes).forEach(cat => {
+        cat.slice(0, 8).forEach(item => {
+            if (!seenIds.has(item.id)) {
+                seenIds.add(item.id);
+                allContent.push({ ...item, type: 'movie', locked: false });
+            }
+        });
+    });
+    
+    Object.values(contentData.series).forEach(cat => {
+        cat.slice(0, 6).forEach(item => {
+            if (!seenIds.has(item.id)) {
+                seenIds.add(item.id);
+                allContent.push({ ...item, type: 'series', locked: false });
+            }
+        });
+    });
+    
     shuffleArray(allContent);
-    // Ensure no repetitions by taking only first 12 unique items if needed, but here they are all unique from different categories
-    allContent.slice(0, 12).forEach(item => contentGrid.appendChild(createContentCard(item)));
+    // Mostrar todos os itens disponíveis (não limitar a 12)
+    allContent.forEach(item => contentGrid.appendChild(createContentCard(item)));
 }
 
 function loadCategoryContent(section, subcategory) {
     currentSubcategory = subcategory;
     contentGrid.innerHTML = '';
 
-    const label = subcategoryLabels[section][subcategory] || "Conteúdo";
     let items = (contentData[section][subcategory] || []).map(item => ({
         ...item,
         locked: true,
         type: section === 'filmes' ? 'movie' : 'series'
     }));
-
-    // Fill up to 24 unique items to avoid repetitions
-    const countNeeded = 24 - items.length;
-    if (countNeeded > 0) {
-        for (let i = 1; i <= countNeeded; i++) {
-            items.push({
-                id: `gen-${section}-${subcategory}-${i}`,
-                title: `${label} Extra ${i}`,
-                year: (2020 + Math.floor(Math.random() * 5)).toString(),
-                rating: (Math.random() * (9.5 - 6.0) + 6.0).toFixed(1),
-                image: `https://placehold.co/342x513/1a1a1a/666?text=${label.replace(/\s/g, '+')}+${i}`,
-                locked: true,
-                type: section === 'filmes' ? 'movie' : 'series'
-            });
-        }
-    }
 
     if (section === 'canais') {
         const channels = (contentData.canais[subcategory] || []).map(c => ({ ...c, locked: true }));
@@ -149,7 +207,11 @@ function loadFavoritesContent() {
             <h3 style="margin-bottom:10px;color:var(--text-primary);">Seus Favoritos</h3>
             <p>Clique no ❤️ para adicionar</p></div>`;
     } else {
-        favorites.forEach(item => contentGrid.appendChild(createContentCard(item)));
+        // Garantir que favoritos apareçam bloqueados
+        favorites.forEach(item => {
+            const lockedItem = { ...item, locked: true };
+            contentGrid.appendChild(createContentCard(lockedItem));
+        });
     }
 }
 
@@ -310,12 +372,21 @@ function initSearch() {
             return;
         }
         const results = [];
+        const seenIds = new Set();
+        
         Object.values(contentData.filmes).forEach(cat => cat.forEach(item => {
-            if (item.title.toLowerCase().includes(query)) results.push({ ...item, type: 'movie', locked: true });
+            if (item.title.toLowerCase().includes(query) && !seenIds.has(item.id)) {
+                seenIds.add(item.id);
+                results.push({ ...item, type: 'movie', locked: true });
+            }
         }));
         Object.values(contentData.series).forEach(cat => cat.forEach(item => {
-            if (item.title.toLowerCase().includes(query)) results.push({ ...item, type: 'series', locked: true });
+            if (item.title.toLowerCase().includes(query) && !seenIds.has(item.id)) {
+                seenIds.add(item.id);
+                results.push({ ...item, type: 'series', locked: true });
+            }
         }));
+        
         contentGrid.innerHTML = '';
         if (results.length === 0) {
             contentGrid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-secondary);">Nenhum resultado para "${query}"</div>`;

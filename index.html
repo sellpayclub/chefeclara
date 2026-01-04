@@ -34,6 +34,9 @@
 
     <!-- APP CONTAINER -->
     <div class="app-container" id="appContainer" style="display: none;">
+        <!-- Sidebar Overlay (Mobile) -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-logo">
@@ -88,7 +91,20 @@
 
         <!-- Main Content -->
         <main class="main-content">
+            <!-- Preview Banner -->
+            <div class="preview-banner">
+                <span class="preview-text">VERSÃO DE DEMONSTRAÇÃO - Desbloqueie para acessar todo o conteúdo</span>
+                <button class="preview-unlock-btn" id="previewUnlockBtn">DESBLOQUEAR CONTEÚDOS</button>
+            </div>
+            
             <header class="header">
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
                 <img src="assets/logo.png" alt="TV SHOW" class="header-logo">
                 <div class="search-container">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
