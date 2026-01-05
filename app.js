@@ -65,17 +65,22 @@ function handleSectionChange(section) {
     if (section === 'home') {
         hideSubcategories();
         loadHomeContent();
+        // Fechar menu mobile após seleção
+        if (window.innerWidth <= 768) {
+            closeMobileMenu();
+        }
     } else if (section === 'favoritos') {
         hideSubcategories();
         loadFavoritesContent();
+        // Fechar menu mobile após seleção
+        if (window.innerWidth <= 768) {
+            closeMobileMenu();
+        }
     } else if (['filmes', 'series', 'canais'].includes(section)) {
         showSubcategories(section);
         const firstSubcat = Object.keys(contentData[section])[0];
         loadCategoryContent(section, firstSubcat);
-    }
-    // Fechar menu mobile após seleção
-    if (window.innerWidth <= 768) {
-        closeMobileMenu();
+        // NÃO fechar menu no mobile - usuário precisa ver subcategorias
     }
 }
 
@@ -139,6 +144,10 @@ function showSubcategories(section) {
             subcategoriesList.querySelectorAll('.subcategory-item').forEach(i => i.classList.remove('active'));
             item.classList.add('active');
             loadCategoryContent(section, key);
+            // Fechar menu mobile após selecionar subcategoria
+            if (window.innerWidth <= 768) {
+                closeMobileMenu();
+            }
         });
         subcategoriesList.appendChild(item);
     });
