@@ -1182,6 +1182,8 @@ body {
 
     .sidebar-overlay {
         display: block;
+        z-index: 350;
+        /* Acima do banner (300) */
     }
 
     /* Sidebar Mobile */
@@ -1197,7 +1199,8 @@ body {
         background: var(--bg-secondary);
         backdrop-filter: blur(20px);
         box-shadow: 2px 0 30px rgba(0, 0, 0, 0.5);
-        z-index: 150;
+        z-index: 400;
+        /* Acima do banner (300) e overlay (350) */
         transform: translateX(-100%);
         transition: transform var(--transition-normal);
         overflow-y: auto;
