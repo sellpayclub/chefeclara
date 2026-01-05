@@ -879,30 +879,30 @@ body {
     text-transform: uppercase;
 }
 
-/* Devices Section */
+/* Devices Section - Marcas de TV */
 .devices-section {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(99, 102, 241, 0.1));
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    border-radius: 10px;
-    padding: 15px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(99, 102, 241, 0.15));
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 12px;
+    padding: 18px;
     margin-bottom: 15px;
     overflow: hidden;
 }
 
 .devices-title {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: white;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .devices-carousel {
     display: flex;
-    gap: 15px;
+    gap: 8px;
     overflow: hidden;
     padding: 5px 0;
-    animation: scrollDevices 15s linear infinite;
+    animation: scrollDevices 12s linear infinite;
 }
 
 @keyframes scrollDevices {
@@ -921,11 +921,14 @@ body {
 
 .device-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 6px;
-    min-width: 60px;
+    justify-content: center;
+    min-width: auto;
     flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 16px;
 }
 
 .device-item img {
@@ -934,12 +937,15 @@ body {
     object-fit: contain;
     filter: brightness(0) invert(1);
     opacity: 0.9;
+    display: none;
+    /* Hidden as per new styling */
 }
 
 .device-item span {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
     color: white;
-    opacity: 0.9;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 /* Benefits List */
