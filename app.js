@@ -147,8 +147,9 @@ function showSubcategories(section) {
             subcategoriesList.querySelectorAll('.subcategory-item').forEach(i => i.classList.remove('active'));
             item.classList.add('active');
             loadCategoryContent(section, key);
-            // Fechar menu mobile após selecionar subcategoria
+            // Fechar painel de subcategorias e menu mobile após selecionar
             if (window.innerWidth <= 768) {
+                hideSubcategories();
                 closeMobileMenu();
             }
         });

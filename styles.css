@@ -881,29 +881,42 @@ body {
 
 /* Devices Section */
 .devices-section {
-    background: var(--bg-tertiary);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(99, 102, 241, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.3);
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 15px;
+    overflow: hidden;
 }
 
 .devices-title {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
+    font-size: 0.8rem;
+    color: white;
     margin-bottom: 12px;
-    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
 }
 
 .devices-carousel {
     display: flex;
-    gap: 12px;
-    overflow-x: auto;
+    gap: 15px;
+    overflow: hidden;
     padding: 5px 0;
-    scrollbar-width: none;
+    animation: scrollDevices 15s linear infinite;
 }
 
-.devices-carousel::-webkit-scrollbar {
-    display: none;
+@keyframes scrollDevices {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.devices-carousel:hover {
+    animation-play-state: paused;
 }
 
 .device-item {
@@ -911,19 +924,22 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 6px;
-    min-width: 55px;
+    min-width: 60px;
+    flex-shrink: 0;
 }
 
 .device-item img {
     width: 35px;
     height: 35px;
     object-fit: contain;
-    filter: grayscale(100%) brightness(1.5);
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
 }
 
 .device-item span {
-    font-size: 0.55rem;
-    color: var(--text-muted);
+    font-size: 0.6rem;
+    color: white;
+    opacity: 0.9;
 }
 
 /* Benefits List */
