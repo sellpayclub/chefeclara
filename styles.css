@@ -1138,23 +1138,30 @@ body {
         overflow: hidden;
     }
 
-    /* Preview Banner - Mobile */
+    /* Preview Banner - Mobile - Compacto com menu */
     .preview-banner {
-        padding: 12px 15px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 8px 60px 8px 15px;
+        /* Espaço para o menu toggle */
         flex-direction: column;
-        gap: 10px;
-        font-size: 0.85rem;
+        gap: 8px;
+        font-size: 0.75rem;
+        z-index: 200;
     }
 
     .preview-text {
         text-align: center;
-        line-height: 1.4;
+        line-height: 1.3;
+        font-size: 0.7rem;
     }
 
     .preview-unlock-btn {
         width: 100%;
-        padding: 14px 20px;
-        font-size: 0.9rem;
+        padding: 10px 15px;
+        font-size: 0.8rem;
         font-weight: 800;
         animation: pulseBtn 2s ease-in-out infinite;
     }
@@ -1171,19 +1178,31 @@ body {
         }
     }
 
-    /* Menu Toggle */
+    /* Menu Toggle - Fixo no canto direito do banner */
     .menu-toggle {
         display: flex;
         align-items: center;
         justify-content: center;
         min-width: 44px;
         min-height: 44px;
+        position: fixed;
+        top: 8px;
+        right: 10px;
+        z-index: 250;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .menu-toggle svg {
+        width: 24px;
+        height: 24px;
+        color: white;
     }
 
     .sidebar-overlay {
         display: block;
         z-index: 350;
-        /* Acima do banner (300) */
     }
 
     /* Sidebar Mobile */
@@ -1338,20 +1357,22 @@ body {
     .main-content {
         margin-left: 0;
         padding-bottom: 20px;
-        padding-top: 70px;
+        padding-top: 90px;
+        /* Espaço para o banner compacto */
     }
 
     .main-content.with-subcategories {
         margin-left: 0;
-        padding-top: 70px;
+        padding-top: 90px;
     }
 
-    /* Header Mobile */
+    /* Header Mobile - Abaixo do banner */
     .header {
         padding: 0 12px;
-        height: 60px;
+        height: 50px;
         position: sticky;
-        top: 70px;
+        top: 80px;
+        /* Abaixo do banner */
         z-index: 100;
         background: rgba(13, 13, 13, 0.98);
         backdrop-filter: blur(20px);
