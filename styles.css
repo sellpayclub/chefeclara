@@ -1136,6 +1136,71 @@ body {
     color: var(--text-muted);
 }
 
+/* Compatibility Notice */
+.compatibility-notice {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(16, 185, 129, 0.1));
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+}
+
+.compatibility-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.compatibility-text {
+    font-size: 0.9rem;
+    color: white;
+    line-height: 1.5;
+}
+
+.compatibility-text strong {
+    color: #22c55e;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.faq-title {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.faq-item {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 12px 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    background: rgba(139, 92, 246, 0.1);
+    border-left: 3px solid var(--accent-primary);
+}
+
+.faq-answer {
+    padding: 12px 15px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
 /* SIDEBAR OVERLAY */
 .sidebar-overlay {
     display: none;
