@@ -80,7 +80,10 @@ function handleSectionChange(section) {
         showSubcategories(section);
         const firstSubcat = Object.keys(contentData[section])[0];
         loadCategoryContent(section, firstSubcat);
-        // NÃO fechar menu no mobile - usuário precisa ver subcategorias
+        // Fechar menu mobile para mostrar painel lateral de subcategorias
+        if (window.innerWidth <= 768) {
+            closeMobileMenu();
+        }
     }
 }
 
