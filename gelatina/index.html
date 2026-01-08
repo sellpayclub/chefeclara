@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelatina Slim - Emagreça até 12kg Naturalmente</title>
+    <meta name="description"
+        content="Descubra a receita da Gelatina Bariátrica que as famosas usaram para secar até 12kg em poucos dias. Método 100% natural aprovado por médicos.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section - Always Visible */
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #764ba2;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            margin: 30px auto;
+            max-width: 500px;
+        }
+
+        /* Content Section */
+        .content-section {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Para Quem É Section */
+        .for-who-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 30px;
+            margin: 40px auto;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .for-who-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #764ba2;
+            margin-bottom: 40px;
+            font-weight: 800;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .benefit-item {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 25px;
+            border-radius: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-item i {
+            font-size: 2rem;
+            min-width: 40px;
+        }
+
+        .benefit-item p {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* What You'll Receive Section */
+        .receive-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 30px;
+            margin: 40px auto;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .receive-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #764ba2;
+            margin-bottom: 40px;
+            font-weight: 800;
+        }
+
+        .receive-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .receive-list li {
+            padding: 20px;
+            margin: 15px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .receive-list li i {
+            font-size: 1.5rem;
+            color: #f093fb;
+        }
+
+        .receive-description {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border-left: 5px solid #764ba2;
+        }
+
+        .receive-description p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Warning Section */
+        .warning-section {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+            border-radius: 30px;
+            padding: 40px 30px;
+            margin: 40px auto;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 3px solid #fff;
+        }
+
+        .warning-section h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .warning-section p {
+            color: white;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            margin: 60px auto;
+            max-width: 1000px;
+        }
+
+        .pricing-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 50px;
+            font-weight: 800;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #f093fb;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            height: 8px;
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .plan-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card.featured .plan-badge {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .pricing-card h3 {
+            font-size: 2rem;
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: #667eea;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 1.2rem;
+            color: #999;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            color: #555;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li i {
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .pricing-card.featured .cta-button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.4);
+        }
+
+        .pricing-card.featured .cta-button:hover {
+            box-shadow: 0 15px 40px rgba(240, 147, 251, 0.6);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 30px;
+            margin: 40px auto;
+            max-width: 1100px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonials-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #764ba2;
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-item:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonial-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-section h2 {
+                font-size: 1.1rem;
+            }
+
+            .for-who-section h2,
+            .receive-section h2,
+            .testimonials-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .pricing-section h2 {
+                font-size: 2rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Hero Section - Always Visible -->
+        <section class="hero-section">
+            <h1>Gelatina Slim! A Receita que as famosas usaram para secar até 12kg em poucos dias!</h1>
+            <h2>Veja o que o Dr. Antonio diz sobre a Receita da Gelatina Bariátrica no Vídeo Abaixo</h2>
+
+            <!-- Video Player -->
+            <div class="video-container">
+                <script type="text/javascript">
+                    var s = document.createElement("script");
+                    s.src = "https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js",
+                        s.async = !0,
+                        document.head.appendChild(s);
+                </script>
+                <div id="ifr_695fc7ae2e6d8eb8b76bebce_wrapper" style="margin: 0 auto; width: 100%; max-width: 400px;">
+                    <div style="position: relative; padding: 133.33333333333331% 0 0 0;"
+                        id="ifr_695fc7ae2e6d8eb8b76bebce_aspect">
+                        <iframe frameborder="0" allowfullscreen src="about:blank" id="ifr_695fc7ae2e6d8eb8b76bebce"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                            referrerpolicy="origin"
+                            onload="this.onload=null, this.src='https://scripts.converteai.net/23a12c68-c1f4-4484-8d24-176d22e3e1c7/players/695fc7ae2e6d8eb8b76bebce/v4/embed.html' +(location.search||'?') +'&vl=' +encodeURIComponent(location.href)"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="content-section">
+            <!-- Para Quem É Section -->
+            <section class="for-who-section">
+                <h2>Para quem é a receita:</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-weight-scale"></i>
+                        <p>Para quem quer secar até 12kg por mês de forma 100% Natural</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-heart-broken"></i>
+                        <p>Para quem já tentou de tudo e não consegue emagrecer</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-wallet"></i>
+                        <p>Para quem não tem dinheiro para comprar tratamentos caros</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-star"></i>
+                        <p>Para quem quer mudança de verdade em 2026</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- What You'll Receive Section -->
+            <section class="receive-section">
+                <h2>O que você vai receber:</h2>
+                <ul class="receive-list">
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Protocolo completo e PERSONALIZADO para o seu metabolismo</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>A Receita da Gelatina feito pela Equipe do Doutor Antonio para você</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>A lista e a forma de preparar a Gelatina Bariátrica</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Todos os ajustes necessários para fazer por 6 Meses!</span>
+                    </li>
+                </ul>
+
+                <div class="receive-description">
+                    <p>Em cada mês o seu organismo e metabolismo se adapta e a receita da gelatina bariátrica vai se
+                        adequar a cada uma dessas fases até que você esteja com corpo dos sonhos!</p>
+                </div>
+            </section>
+
+            <!-- Warning Section -->
+            <section class="warning-section">
+                <h3><i class="fas fa-exclamation-triangle"></i> ATENÇÃO</h3>
+                <p>A receita deve ser consumida de acordo com as doses recomendadas pelo doutor pois ela é muito forte.
+                    Temos relatos de mulheres que perderam muito peso e acabaram perdendo todas as roupas em poucos
+                    meses, por isso use com moderação!</p>
+            </section>
+
+            <!-- Pricing Section -->
+            <section class="pricing-section">
+                <h2>Escolha seu Plano</h2>
+                <div class="pricing-grid">
+                    <!-- Plan 1: 30 Days -->
+                    <div class="pricing-card">
+                        <span class="plan-badge">Plano Básico</span>
+                        <h3>Plano Básico</h3>
+                        <div class="price">
+                            <span>R$</span> 9,90
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Ideal para quem quer apenas testar</li>
+                            <li><i class="fas fa-check"></i> Perder de 2 a 4 kilos</li>
+                            <li><i class="fas fa-check"></i> Receita completa da Gelatina</li>
+                            <li><i class="fas fa-times" style="color: #ccc;"></i> Não tem ajustes</li>
+                        </ul>
+                        <a href="https://pay.lowify.com.br/go.php?offer=mc45xkp" class="cta-button">Quero Meu Acesso</a>
+                    </div>
+
+                    <!-- Plan 2: Complete -->
+                    <div class="pricing-card featured">
+                        <span class="plan-badge">⭐ Mais Escolhido</span>
+                        <h3>Plano Completo</h3>
+                        <div class="price">
+                            <span>R$</span> 29,90
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Para quem quer perder muito peso</li>
+                            <li><i class="fas fa-check"></i> Acompanhamento com doutor incluído</li>
+                            <li><i class="fas fa-check"></i> Todas as receitas e ajustes ao longo de 6 meses</li>
+                            <li><i class="fas fa-check"></i> Acesso Vitalício</li>
+                        </ul>
+                        <a href="https://pay.lowify.com.br/go.php?offer=ilrbxqy" class="cta-button">Quero Meu Acesso</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="testimonials-section">
+                <h2>Resultados Reais de Quem Já Transformou o Corpo</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-item">
+                        <img src="images/depoimento1.png" alt="Transformação - Antes e Depois">
+                    </div>
+                    <div class="testimonial-item">
+                        <img src="images/depoimento2.png" alt="Transformação - Antes e Depois">
+                    </div>
+                    <div class="testimonial-item">
+                        <img src="images/depoimento3.png" alt="Transformação - Antes e Depois">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
